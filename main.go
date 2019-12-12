@@ -74,11 +74,13 @@ func initConfig() (*conf.Config, []byte, error) {
 func startHTTPServer(cfgData []byte, addr string) (*gin.Engine, error) {
 	mode := viper.GetString("mode")
 	gin.SetMode(mode)
-	quit := make(chan os.Signal)
-	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
 
 	// begin Http server
 	httpServer, err := gin.Default()
+	if err != nil {
+		fmt.Printf("httpServer error: %v", err)
+	}
+	return nil, httpServer
 }
 
 func main() {
