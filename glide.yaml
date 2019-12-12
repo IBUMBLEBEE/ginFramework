@@ -1,0 +1,5 @@
+package: ginFramework
+import:
+- package: github.com/gin-gonic/gin
+- package: github.com/spf13/viper
+- package: ops/gin_Framework/conf
